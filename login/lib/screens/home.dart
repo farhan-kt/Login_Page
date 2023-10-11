@@ -7,95 +7,26 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HOME'),
-        actions: [
-          IconButton(
-              onPressed: () {
-                signout(context);
-              },
-              icon: Icon(Icons.exit_to_app)),
-        ],
-      ),
-      body: ListView(
-        children: [
-          Container(
-            alignment: Alignment.center,
-            height: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-                Text(
-                  'GOKUL',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            color: Colors.green,
-          ),
-          Container(
-            alignment: Alignment.center,
-            height: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-                Text(
-                  'MUBASHIR',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            color: Colors.orange[900],
-          ),
-          Container(
-            alignment: Alignment.center,
-            height: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-                Text(
-                  'ADNAN',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            color: Color.fromARGB(255, 244, 247, 248),
-          ),
-          Container(
-            height: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-                Text(
-                  'IRSHAD',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            color: Color.fromARGB(255, 39, 133, 4),
-          ),
-          Container(
-            alignment: Alignment.center,
-            height: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.account_circle)),
-                Text(
-                  'AKSA',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            color: Color.fromARGB(255, 234, 248, 42),
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text('HOME'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  signout(context);
+                },
+                icon: Icon(Icons.exit_to_app)),
+          ],
+        ),
+        body: ListView.builder(
+            itemCount: 30,
+            itemBuilder: (BuildContext context, Index) {
+              return ListTile(
+                onTap: () {},
+                leading: Icon(Icons.person_2_outlined),
+                trailing: Icon(Icons.call),
+                title: Text("person ${Index + 1}"),
+              );
+            }));
   }
 
   signout(BuildContext ctx) {
