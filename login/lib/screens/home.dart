@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -29,7 +30,10 @@ class ScreenHome extends StatelessWidget {
             }));
   }
 
-  signout(BuildContext ctx) {
+  signout(BuildContext ctx) async {
+    final _sharedprefs = await SharedPreferences.getInstance();
+    await _sharedprefs.clear();
+
     Navigator.of(ctx).pushAndRemoveUntil(
         MaterialPageRoute(builder: (ctx) => ScreenLogin()), (route) => false);
   }
